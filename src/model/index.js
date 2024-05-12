@@ -30,8 +30,7 @@ export async function addMessage(userId, message) {
   const tokens = tokenize(message);
 
   // every message starts and ends with SEPARATOR_TOKEN, so empty messages are 2 tokens long.
-  // we also want to ignore one-token-long messages because they are kinda useless
-  if (tokens.length <= 3) return;
+  if (tokens.length <= 2) return;
 
   for (let i = 0; i < tokens.length - 1; i++) {
     await addPair(userId, tokens[i], tokens[i + 1]);
