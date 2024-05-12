@@ -1,4 +1,5 @@
 import { exec$, fetch$ } from "../../database.js";
+import { mentionCommand } from "../../util.js";
 
 export const name = "setup";
 export const description = "Setup a markov chain";
@@ -14,7 +15,9 @@ export async function run (i) {
 
   await exec$("insert into user_settings values ($1, true)", [i.user.id]);
   await i.reply({
-    content: "TODO",
+    content: `Your markov chain has been created! It is enabled by default, but you can use ${
+      mentionCommand(i.client, "config")
+    } if you want to change that`,
     ephemeral: true
   });
 }
