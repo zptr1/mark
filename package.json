@@ -1,0 +1,26 @@
+{
+  "type": "module",
+  "name": "mark",
+  "version": "1.0.0",
+  "description": "A simple Discord bot with markov chains",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zptr1/mark.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "markov",
+    "chain"
+  ],
+  "author": "zptr1",
+  "license": "MIT",
+  "dependencies": {
+    "@lenml/llama2-tokenizer": "^1.1.4",
+    "@lenml/llama2-tokenizer-vocab-llama2": "^1.1.1",
+    "discord.js": "^14.15.2",
+    "glob": "^10.3.14",
+    "pg": "^8.11.5"
+  }
+}

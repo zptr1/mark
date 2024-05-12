@@ -1,0 +1,26 @@
+CREATE TABLE IF NOT EXISTS tokens (
+  id serial primary key,
+  value varchar(255),
+
+  UNIQUE (value)
+);
+
+CREATE TABLE IF NOT EXISTS pairs (
+  id bigserial primary key,
+
+  uid bigint,
+  current_token int,
+  next_token int,
+  freq int,
+
+  UNIQUE (uid, current_token, next_token)
+);
+
+CREATE INDEX IF NOT EXISTS pairs_uid_current_token_idx ON pairs (uid, current_token);
+INSERT INTO tokens VALUES (0, '<|separator|>') ON CONFLICT DO NOTHING;
+
+CREATE TABLE IF NOT EXISTS user_settings (uid bigint primary key, enabled bool);
+CREATE TABLE IF NOT EXISTS server_overrides (
+  uid bigint, sid bigint, enabled boolean,
+  UNIQUE (uid, sid)
+);
