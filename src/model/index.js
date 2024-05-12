@@ -33,11 +33,9 @@ export async function addMessage(userId, message) {
   // we also want to ignore one-token-long messages because they are kinda useless
   if (tokens.length <= 3) return;
 
-  const s = Date.now();
   for (let i = 0; i < tokens.length - 1; i++) {
     await addPair(userId, tokens[i], tokens[i + 1]);
   }
-  console.log("took", Date.now()-s, "ms");
 }
 
 /** @returns {Promise<number>} */
