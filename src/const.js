@@ -3,4 +3,4 @@ export const RE_DISCORD_SERVER_LINK = /(canary\.|ptb\.)?(discord)?\s*\.\s*(com\s
 export const RE_CENSORED_WORDS = /\b(fa+g+(o+t)?|ne+gr[oa]*|ni+g+(a+s*|e+rs*)|ra+p(er?|ing)s?|cu+nt|pe+do+(phi+le+)?s?)\b/gi;
 
 // minimal pair count before users can use `/generate`
-export const MIN_PAIR_COUNT = 50;
+export const MIN_PAIR_COUNT = 15;
