@@ -7,7 +7,6 @@ What I store instead is all word pairs you've said: for example, if you say "I l
 ## How can I get my own markov chain?
 You can use {setup} to create your markov chain! 
 After creating your markov chain and sending some messages, use {generate} to generate a message!
-
 You can use {config} to enable or disable your markov chain everywhere/on a specific server.
 
 ## I don't trust you!!!

@@ -4,13 +4,13 @@ import { readFile } from "fs/promises";
 export const name = "help";
 export const description = "if you dont understand something about this bot";
 
+const HELP_TEXT = await readFile("data/help.md", "utf-8");
+
 /** @param {import("discord.js").ChatInputCommandInteraction} i */
 export async function run (i) {
   await i.reply({
     ephemeral: true,
-    content: (
-      await readFile("data/help.md", "utf-8")
-    ).replace(
+    content: HELP_TEXT.replace(
       /{([a-z ]+)}/g, (_, command) => {
         const commandName = command.split(" ")[0];
         return `</${command}:${
