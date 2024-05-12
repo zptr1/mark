@@ -69,12 +69,12 @@ export async function generateMessage(userId) {
     await nextToken(userId, 0, cache)
   ];
 
-  while (sentence.length < 65) {
+  while (sentence.length < 75) {
     const next = await nextToken(userId, sentence.at(-1), cache);
     if (!next) break;
     sentence.push(next);
   }
 
   cache.clear(); // justin case
-  return sentence.map((x) => tokenIdMap.get(x)).join(" ").slice(0, 500);
+  return sentence.map((x) => tokenIdMap.get(x)).join(" ").slice(0, 750);
 }
