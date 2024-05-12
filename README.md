@@ -1,3 +1,3 @@
 # mark
 
-A very simple Discord bot that allows you to have your own Markov chain
+A very simple Discord bot with separate markov chains for everyone!
