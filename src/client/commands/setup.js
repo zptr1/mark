@@ -15,9 +15,11 @@ export async function run (i) {
 
   await exec$("insert into user_settings values ($1, true)", [i.user.id]);
   await i.reply({
-    content: `Your markov chain has been created! It is enabled by default, but you can use ${
-      mentionCommand(i.client, "config")
-    } if you want to change that`,
+    content: "### Your markov chain has been created!\n"
+      + `Use ${mentionCommand(i.client, "generate")} to generate a message from your chain after you've sent some messages!\n\n`
+      + `Please note that by default your markov chain is enabled everywhere! Use ${
+        mentionCommand(i.client, "config")
+      } if you want to enable or disable it on specific servers`,
     ephemeral: true
   });
 }
