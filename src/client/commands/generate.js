@@ -68,9 +68,9 @@ export async function run (i) {
   await i.reply({
     content: `**@${user.tag} once said...**\n> ${
       message
-        .replace(RE_CENSORED_WORDS, (m) => "\\*".repeat(m.length))
-        .replace(RE_DISCORD_SERVER_LINK, "[invite]")
         .replace(RE_LINK, "[link]")
+        .replace(RE_DISCORD_SERVER_LINK, "[invite]")
+        .replace(RE_CENSORED_WORDS, (m) => "\\*".repeat(m.length))
         .replace(/\n+/g, "\n> ")
     }`
   });

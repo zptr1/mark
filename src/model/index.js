@@ -29,7 +29,7 @@ export async function addPair(userId, currentToken, nextToken) {
 export async function addMessage(userId, message) {
   const tokens = tokenize(message);
 
-  // every message starts and ends with SEPARATOR_TOKEN, so empty messages are 2 tokens long.
+  // every message starts and ends with SEPARATOR_TOKEN, so empty messages are 2 tokens long
   if (tokens.length <= 2) return;
 
   for (let i = 0; i < tokens.length - 1; i++) {
@@ -69,12 +69,13 @@ export async function generateMessage(userId) {
     await nextToken(userId, 0, cache)
   ];
 
-  while (sentence.length < 75) {
+  while (sentence.length < 127) {
     const next = await nextToken(userId, sentence.at(-1), cache);
     if (!next) break;
+    
     sentence.push(next);
   }
 
   cache.clear(); // justin case
-  return sentence.map((x) => tokenIdMap.get(x)).join(" ").slice(0, 750);
+  return sentence.map((x) => tokenIdMap.get(x)).join(" ").slice(0, 1000);
 }
